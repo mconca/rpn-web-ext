@@ -1,3 +1,5 @@
+// Ported to WebExtension by Mike Conca, 2017
+//
 // Copyright (c) 2011, Christophe Juniet <christophe at juniet dot net>
 // You may do anything with this work that copyright law would normally
 // restrict, so long as you retain the above notice(s) and this license
@@ -7,7 +9,6 @@ var G, W, H, N, S;
 var stack = [''];
 var ustack = [''];
 var mode = 10;
-var blink = true;
 var fg1, fg2, bg1, bg2;
 
 function is_constant(c) {
@@ -54,7 +55,6 @@ function parseNumber(o) {
 
 function main() {
   log("loading...");
-  var girly = (location.search.substr(1) == 'kitty');
   var screen = document.getElementById('screen');
   if (screen.getContext) {
     G = screen.getContext('2d');
@@ -65,12 +65,11 @@ function main() {
     G.font = S + 'px monospace';
     G.textAlign = "right";
     G.textBaseline = "bottom";
-    fg1 = (girly?"#101010":"#607060");
-    fg2 = (girly?"#878787":"#97A797");
-    bg1 = (girly?"#ff99cc":"#d0e0d0");
-    bg2 = (girly?"#ffffcc":"#e0f0e0");
+    fg1 = ("#607060");
+    fg2 = ("#97A797");
+    bg1 = ("#d0e0d0");
+    bg2 = ("#e0f0e0");
     draw();
-    window.setInterval("blinktimer()", 500);
     log("ready!");
   } else {
     log("canvas is not supported!");
@@ -299,7 +298,6 @@ function draw() {
   }
 
   G.fillStyle = fg1;
-  if (blink) G.fillRect(W-2, H-S, W, H);
   if (stack[0] != '') drawText(stack[0], 0);
 
   for (var i = 1; i < stack.length; i++) {
@@ -330,11 +328,6 @@ function drawText(s, i) {
   G.font = S + 'px monospace';
 }
 
-function blinktimer() {
-  blink = !blink;
-  draw();
-}
-
 function log(msg) {
   var trace = document.getElementById("trace");
   var lines = trace.innerHTML;
@@ -344,3 +337,12 @@ function log(msg) {
   v.push('[' + d.toLocaleTimeString() + '] ' + msg);
   trace.innerHTML = v.join('<br>');
 }
+
+// Add event listeners once the DOM has fully loaded by listening for the
+// `DOMContentLoaded` event on the document, and adding listeners to
+// specific elements when it triggers.
+document.addEventListener('DOMContentLoaded', function () {
+  document.body.addEventListener('keypress', onkey);
+  document.body.addEventListener('keydown', onspecialkey);
+  main();
+});
