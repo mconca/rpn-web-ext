@@ -1,4 +1,4 @@
-// Ported to WebExtension by Mike Conca, 2017
+// Ported to WebExtension browser action by Mike Conca, 2017
 //
 // Copyright (c) 2011, Christophe Juniet <christophe at juniet dot net>
 // You may do anything with this work that copyright law would normally
@@ -70,7 +70,7 @@ function main() {
     bg1 = ("#d0e0d0");
     bg2 = ("#e0f0e0");
     draw();
-    log("ready!");
+    log("ready");
   } else {
     log("canvas is not supported!");
   }
