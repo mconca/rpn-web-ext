@@ -15,95 +15,182 @@
 <title>RPN Calculator</title>
 </head>
 <body>
-<table>
-  <tbody>
-    <tr>
-      <td colspan="3"><canvas  tabindex="0" id="screen"></canvas></td>
-      <td id="help" rowspan="2">
-        <table>
-          <tbody>
-            <tr><td colspan="2" class="hs">operators</td></tr>
-            <tr class="hr"><td class="hi">+</td><td class="ht">addition</td></tr>
-            <tr class="hr"><td class="hi">-</td><td class="ht">substraction</td></tr>
-            <tr class="hr"><td class="hi">*</td><td class="ht">multiplication</td></tr>
-            <tr class="hr"><td class="hi">/</td><td class="ht">division</td></tr>
-            <tr class="hr"><td class="hi">%</td><td class="ht">modulo</td></tr>
-            <tr class="hr"><td class="hi">@</td><td class="ht">power</td></tr>
-            <tr class="hr"><td class="hi">n</td><td class="ht">opposite</td></tr>
-            <tr class="hr"><td class="hi">i</td><td class="ht">integer part</td></tr>
-            <tr><td colspan="2" class="hs">bit operators</td></tr>
-            <tr class="hr"><td class="hi">&amp;</td><td class="ht">bitwise and</td></tr>
-            <tr class="hr"><td class="hi">|</td><td class="ht">bitwise or</td></tr>
-            <tr class="hr"><td class="hi">^</td><td class="ht">exclusive or</td></tr>
-            <tr><td colspan="2" class="hs">functions</td></tr>
-            <tr class="hr"><td class="hi">l</td><td class="ht">logarithm</td></tr>
-            <tr class="hr"><td class="hi">r</td><td class="ht">square root</td></tr>
-            <tr class="hr"><td class="hi">S</td><td class="ht">sine</td></tr>
-            <tr class="hr"><td class="hi">C</td><td class="ht">cosine</td></tr>
-            <tr><td colspan="2" class="hs">constants</td></tr>
-            <tr class="hr"><td class="hi">P</td><td class="ht">&#960;</td></tr>
-            <tr class="hr"><td class="hi">E</td><td class="ht">e</td></tr>
-            <tr><td colspan="2" class="hs">display switches</td></tr>
-            <tr class="hr"><td class="hi">B</td><td class="ht">binary</td></tr>
-            <tr class="hr"><td class="hi">O</td><td class="ht">octal</td></tr>
-            <tr class="hr"><td class="hi">H</td><td class="ht">hexadecimal</td></tr>
-            <tr><td colspan="2" class="hs">stack operations</td></tr>
-            <tr class="hr"><td class="hi">u</td><td class="ht">undo</td></tr>
-            <tr class="hr"><td class="hi">D</td><td class="ht">duplicate</td></tr>
-            <tr class="hr"><td class="hi">q</td><td class="ht">roll down</td></tr>
-            <tr class="hr"><td class="hi">w</td><td class="ht">roll up</td></tr>
-            <tr class="hr"><td class="hi">X</td><td class="ht">delete</td></tr>
-            <tr class="hr"><td class="hi">z</td><td class="ht">swap</td></tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-    <tr>
-      <td id="trace">RPN Calculator</td>
-      <td class="numpad">
-        <table width="100%">
-          <tbody>
-            <tr>
-              <td class="numpadkey">7</td>
-              <td class="numpadkey">8</td>
-              <td class="numpadkey">9</td>
-            </tr>
-            <tr>
-              <td class="numpadkey">4</td>
-              <td class="numpadkey">5</td>
-              <td class="numpadkey">6</td>
-            </tr>
-            <tr>
-              <td class="numpadkey">1</td>
-              <td class="numpadkey">2</td>
-              <td class="numpadkey">3</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-      <td class="numpad">
-        <table width="100%">
-          <tbody>
-            <tr>
-              <td class="numpadkey">d</td>
-              <td class="numpadkey">e</td>
-              <td class="numpadkey">f</td>
-            </tr>
-            <tr>
-              <td class="numpadkey">a</td>
-              <td class="numpadkey">b</td>
-              <td class="numpadkey">c</td>
-            </tr>
-            <tr>
-              <td class="numpadkey">0</td>
-              <td class="numpadkey">.</td>
-              <td class="numpadkey">x</td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
-</body>
+  <div class="divTable">
+		<div class="divTableBody">
+			<div class="divTableRow">
+				<div class="divTableCellStack"><canvas id="screen"></canvas></div>
+				<div class="divTableCellHelp">
+					<div class="divTable">
+						<div class="divTableBody">
+              <div class="divTableRowOperators">operators</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">+</div>
+								<div class="divTableCellText">addition</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">-</div>
+								<div class="divTableCellText">substraction</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">*</div>
+								<div class="divTableCellText">multiplication</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">/</div>
+								<div class="divTableCellText">division</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">%</div>
+								<div class="divTableCellText">modulo</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">@</div>
+								<div class="divTableCellText">power</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">n</div>
+								<div class="divTableCellText">opposite</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">i</div>
+								<div class="divTableCellText">integer part</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellText">bit operators</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">&amp;</div>
+								<div class="divTableCellText">bitwise and</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">|</div>
+								<div class="divTableCellText">bitwise or</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">^</div>
+								<div class="divTableCellText">exclusive or</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellText">functions</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">l</div>
+								<div class="divTableCellText">logarithm</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">r</div>
+								<div class="divTableCellText">square root</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">S</div>
+								<div class="divTableCellText">sine</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">C</div>
+								<div class="divTableCellText">cosine</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellText">constants</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">P</div>
+								<div class="divTableCellText">&pi;</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">E</div>
+								<div class="divTableCellText">e</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellText">display switches</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">B</div>
+								<div class="divTableCellText">binary</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">O</div>
+								<div class="divTableCellText">octal</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">H</div>
+								<div class="divTableCellText">hexadecimal</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellText">stack operations</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">u</div>
+								<div class="divTableCellText">undo</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">D</div>
+								<div class="divTableCellText">duplicate</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">q</div>
+								<div class="divTableCellText">roll down</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">w</div>
+								<div class="divTableCellText">roll up</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">X</div>
+								<div class="divTableCellText">delete</div>
+							</div>
+							<div class="divTableRowHelp">
+								<div class="divTableCellItem">z</div>
+								<div class="divTableCellText">swap</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="divTableRow">
+				<div class="divTableCell">RPN Calculator</div>
+				<div class="divTableCell">
+					<div class="divTable">
+						<div class="divTableBody">
+							<div class="divTableRow">
+								<div class="divTableCell">7</div>
+								<div class="divTableCell">8</div>
+								<div class="divTableCell">9</div>
+							</div>
+							<div class="divTableRow">
+								<div class="divTableCell">4</div>
+								<div class="divTableCell">5</div>
+								<div class="divTableCell">6</div>
+							</div>
+							<div class="divTableRow">
+								<div class="divTableCell">1</div>
+								<div class="divTableCell">2</div>
+								<div class="divTableCell">3</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="divTableCell">
+					<div class="divTable">
+						<div class="divTableBody">
+							<div class="divTableRow">
+								<div class="divTableCell">d</div>
+								<div class="divTableCell">e</div>
+								<div class="divTableCell">f</div>
+							</div>
+							<div class="divTableRow">
+								<div class="divTableCell">a</div>
+								<div class="divTableCell">b</div>
+								<div class="divTableCell">c</div>
+							</div>
+							<div class="divTableRow">
+								<div class="divTableCell">0</div>
+								<div class="divTableCell">.</div>
+								<div class="divTableCell">x</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div></body>
 </html>
